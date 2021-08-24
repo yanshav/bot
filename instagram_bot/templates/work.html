@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+</head>
+
+
+
+{% extends "base.html" %}
+{% block page_content %}
+  <style type="text/css" >
+    body {background: url(https://i0.wp.com/www.csscodelab.com/wp-content/uploads/2020/03/instagram-style-background-gradient-css.png?w=1135&ssl=1);}
+    h4 {color: #ffffff;}
+
+    label {color: #ffffff;}
+    h2 {color: #ffffff;}
+    p {color: #ffffff;}
+
+
+
+    </style>
+<br>
+<h4>Ваш акаунт {{name}}</h4>
+<br>
+
+
+<h2>Лайки</h2>
+
+<form action="{% url 'end_like' %}" method="POST">
+    {% csrf_token %}
+    <label>#Хэштег</label>
+    <input name="hash" required>
+    <label>Количество</label>
+    <input name="numb" maxlength="2" size="2" required>
+    <button type="submit">Ставить лайки</button>
+
+</form>
+<br>
+<br>
+<h2>Подписка</h2>
+<form action="{% url 'end_follow' %}" method="POST">
+    {% csrf_token %}
+    <label>#Хэштег</label>
+    <input name="hash" required>
+    <label>Количество</label>
+    <input name="numb" maxlength="2" size="2" required>
+    <button type="submit">Подписка</button>
+
+</form>
+
+<br>
+<br>
+<h2>Комментарии</h2>
+<p>Введите через "/" несколько комментариев</p>
+<form action="{% url 'end_comment' %}" method="POST">
+    {% csrf_token %}
+    <textarea cols="30" rows="5" name="text" required> </textarea>
+    <label>#Хэштег</label>
+    <input name="hash" required>
+    <label>Количество</label>
+
+    <input name="numb" maxlength="2" size="2" required>
+
+    <button type="submit">Оставить коментарии</button>
+
+</form>
+
+
+
+
+</body>
+</html>
+{% endblock %}

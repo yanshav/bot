@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    {% extends "base.html" %}
+    {% block page_content %}
+    <style type="text/css" >
+    body {background: url(https://kartinkinaden.ru/uploads/posts/2021-01/thumbs/1610228386_3-p-fon-v-stile-instagram-10.jpg);}
+    h2 {color: #ffffff;}
+    h1 {color: #ffffff;}
+
+
+    </style>
+</head>
+<body>
+
+<h1>{{name}}</h1>
+<h3>{{work}}</h3>
+{% for i in login_users %}
+<h4>{{i}}</h4>
+{% endfor %}
+
+
+</body>
+</html>
+{% endblock %}

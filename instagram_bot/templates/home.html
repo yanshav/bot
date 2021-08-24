@@ -1,0 +1,30 @@
+
+{% extends "base.html" %}
+{% block page_content %}
+
+<style type="text/css" >
+        body {background: url(https://kartinkinaden.ru/uploads/posts/2021-01/thumbs/1610228386_3-p-fon-v-stile-instagram-10.jpg);}
+        h4 {color: #ffffff;}
+        label {color: #ffffff;}
+
+
+    </style>
+
+
+
+<br>
+<h4>Для накрутки введите логин и пароль от Вашего акаунта в instagram</h4>
+<br>
+<br>
+<form action="{% url 'work' %}" method="POST">
+    {% csrf_token %}
+    <label>Логин</label>
+    <input name="name" required>
+    <label>Пароль</label>
+    <input name="password" type="password" required>
+    <button type="submit">Ввод</button>
+
+
+</form>
+
+{% endblock %}
